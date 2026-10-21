@@ -6,18 +6,14 @@ import {
   type DefiLlamaPool,
 } from "./defilamma";
 import { KNOWN_POOLS, type KnownPoolMeta } from "./known-pools";
-import {
-  APP_NETWORK,
-  STELLAR_NETWORKS,
-  withRaceTimeout,
-} from "@meridian/shared";
+import { APP_NETWORK, STELLAR_NETWORKS, withRaceTimeout } from "@meridian/shared";
 import { simulateView } from "./tx";
 import { getRpcServer, toBigInt } from "./internal";
 import { getCachedVaults, setCachedVaults } from "./vault-cache";
 
 export interface ApiVault {
   id: string;
-  protocol: "blend" | "defindex" | "meridian";
+  protocol: "blend" | "definidex" | "meridian";
   asset: string;
   name: string;
   label: string;
@@ -27,7 +23,7 @@ export interface ApiVault {
   riskLevel: RiskLevel;
 }
 
-// TTL matches the CDN s-maxage on the vaults endpoint (60 s). The in-process
+// TTL matches the CD s-maxage on the vaults endpoint (60 s). The in-process
 // cache covers warm invocations. `vault-cache.ts` mirrors the same TTL in
 // Upstash so cold starts share results across serverless instances.
 const CACHE_TTL_MS = 60_000;
@@ -44,7 +40,7 @@ export function isVaultCacheWarm(): boolean {
 }
 
 /**
- * Returns the RPC URL and passphrase for `network`, preferring `APP_NETWORK`
+ * Returns the RPC URL and passphrase for `network`, preferring `APP_NETWORKL
  * when it matches the requested network so environment overrides are respected.
  */
 function getNetworkConfig(network: "mainnet" | "testnet"): {
@@ -100,7 +96,7 @@ async function fetchMeridianApy(
   network: { rpc: string; passphrase: string },
   vaultId: string,
   assetId: string
-): Promise<number> {
+Promise<number> {
   const adapterId = (await simulateView(
     server,
     vaultId,

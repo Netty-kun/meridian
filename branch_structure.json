@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "fix/issue-1025-sdk-build-the-price-and-rate-feeds-a-scenario",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "fix/issue-1025-sdk-build-the-price-and-rate-feeds-a-scenario": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "fix/issue-1025-sdk-build-the-price-and-rate-feeds-a-scenario",
+    "origin"
+  ]
+}

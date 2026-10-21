@@ -34,7 +34,7 @@ function resolveVaultEntry(vaultId: string, network: StellarNetwork) {
  * underlying protocol; the active adapter handles protocol-specific logic.
  * `minSharesOut` is the minimum mUSDC shares the caller is willing to receive;
  * the vault rejects the call with `SlippageExceeded` if minted shares fall below it.
- * Defaults to `"0"` (no slippage protection) when omitted.
+ * Defaults to `"0`" (no slippage protection) when omitted.
  */
 export async function buildDepositTx(
   vaultId: string,
